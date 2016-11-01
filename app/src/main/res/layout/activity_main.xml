@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +13,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="app.os.counter.MainActivity"
     android:orientation="vertical"
-    android:weightSum="4">
+    android:weightSum="5">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="カレンダー"
+            android:id="@+id/calendar_text"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|right"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titile_edit"
+            android:layout_weight="0.5"
+            android:text="タイトル"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -26,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:weightSum="1"
-        android:layout_weight="2">
+        android:layout_weight="2.0">
 
         <LinearLayout
             android:orientation="vertical"
@@ -68,8 +94,39 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="0"
+        android:text="RESET"
         android:id="@+id/zero"
-        android:layout_weight="1"
+        android:layout_weight="1.5"
         android:textSize="@dimen/textSize"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:layout_weight="0.5">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="保存"
+            android:id="@+id/save"
+            android:layout_weight="0.5"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="登録"
+            android:id="@+id/registe"
+            android:layout_weight="0.5"/>
+    </LinearLayout>
 </LinearLayout>
+
+    <fragment
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:name="app.os.counter.CounterListFragment"
+        android:id="@+id/counterlistfragment"
+        android:layout_gravity="left|center_vertical"
+        android:tag="counterlist"/>
+</FrameLayout>
